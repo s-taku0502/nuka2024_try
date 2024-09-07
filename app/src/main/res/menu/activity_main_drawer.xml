@@ -16,5 +16,13 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_stamps"
+            android:icon="@drawable/nav_icon_stamp"
+            android:title="Stamps"/>
+        <item
+            android:id="@+id/nav_scan"
+            android:icon="@drawable/ic_menu_qrcode"
+            android:title="QRscanner"/>
     </group>
 </menu>
