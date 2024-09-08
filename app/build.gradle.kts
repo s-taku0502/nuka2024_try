@@ -52,4 +52,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.journeyapps:zxing-android-embedded:4.1.0")
 }

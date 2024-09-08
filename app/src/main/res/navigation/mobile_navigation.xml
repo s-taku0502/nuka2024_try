@@ -22,4 +22,11 @@
         android:name="com.example.nuka2024_try.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_stamps"
+        android:name="com.example.nuka2024_try.ui.stamps.StampsFragment"
+        android:label="Stamps"
+        tools:layout="@layout/fragment_stamps" />
+
 </navigation>
