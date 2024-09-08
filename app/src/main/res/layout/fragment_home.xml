@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_image"
-    tools:context=".ui.home.HomeFragment"
-
     android:layout_width="match_parent"
+
     android:layout_height="100dp"
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
@@ -14,4 +14,93 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    tools:context=".ui.home.HomeFragment"
+    >
+
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fragment_home_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fragment_home_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <!- ヘッダー部分 ->
+<androidx.constraintlayout.widget.ConstraintLayout
+android:id="@+id/home_header"
+android:layout_width="0dp"
+android:layout_height="100dp"
+android:background="@drawable/side_nav_bar"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent">
+
+<TextView
+    android:id="@+id/textHome"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="fragment_home_1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/textQuote"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="fragment_home_2"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!- 本文部分 ->
+<androidx.constraintlayout.widget.ConstraintLayout
+android:id="@+id/home_content"
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:background="#EFEFEF"
+app:layout_constraintTop_toBottomOf="@id/home_header"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintBottom_toBottomOf="parent">
+
+<TextView
+    android:id="@+id/textContent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="これは本文です"
+    android:textSize="18sp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="16dp" />
+
+<!- 他の本文に関連する要素を追加できます ->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+-->
