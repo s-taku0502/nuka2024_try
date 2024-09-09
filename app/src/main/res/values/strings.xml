@@ -5,7 +5,9 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">設定</string>
+    <string name="action_mail">受信箱</string>
+    <string name="action_ToHome">ホームへ移動する</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>

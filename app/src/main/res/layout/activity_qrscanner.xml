@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QR_Scanner">
+    tools:context=".ui.qr_scanner.QR_Scanner">
 
     <Button
         android:id="@+id/qr_button"

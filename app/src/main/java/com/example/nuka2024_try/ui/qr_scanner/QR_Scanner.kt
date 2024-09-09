@@ -1,10 +1,11 @@
-package com.example.nuka2024_try
+package com.example.nuka2024_try.ui.qr_scanner
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nuka2024_try.R
 import com.google.zxing.integration.android.IntentIntegrator
 
 class QR_Scanner : AppCompatActivity() {
@@ -12,7 +13,9 @@ class QR_Scanner : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var qrButton = findViewById<Button>(R.id.qr_button)
+
+
+        var qrButton = findViewById<Button>(R.id.nav_scan)
 
 
         //ボタンを押した際QR読み取り画面に遷移する

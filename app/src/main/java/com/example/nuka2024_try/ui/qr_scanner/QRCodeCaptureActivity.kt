@@ -1,6 +1,7 @@
-package com.example.nuka2024_try
+package com.example.nuka2024_try.ui.qr_scanner
 
 import android.os.Bundle
+import com.example.nuka2024_try.R
 import com.journeyapps.barcodescanner.CaptureActivity
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
@@ -11,7 +12,7 @@ class QRCodeCaptureActivity : CaptureActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_qrcode )
+        setContentView(R.layout.fragment_qrcode)
 
         var  barcodeScannerView = findViewById<com.journeyapps.barcodescanner.CompoundBarcodeView>(R.id.qrcode_reader)
 

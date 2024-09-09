@@ -29,7 +29,7 @@
         </activity>
 
         <activity
-            android:name=".QRCodeCaptureActivity"
+            android:name=".ui.qr_scanner.QRCodeCaptureActivity"
             android:exported="false" />
 
     </application>
