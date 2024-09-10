@@ -8,14 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.nuka2024_try.R
 import com.google.zxing.integration.android.IntentIntegrator
 
-class QR_Scanner : AppCompatActivity() {
+class QR_Scanner_Main : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //アクティビティの画面として、R.layout.****の****を指定している。
+        setContentView(R.layout.activity_qrscanner)
 
 
 
-        var qrButton = findViewById<Button>(R.id.nav_scan)
+        var qrButton = findViewById<Button>(R.id.qr_button)
 
 
         //ボタンを押した際QR読み取り画面に遷移する
