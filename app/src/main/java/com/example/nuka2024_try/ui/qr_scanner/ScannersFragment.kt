@@ -1,6 +1,7 @@
 package com.example.nuka2024_try.ui.qr_scanner
 
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.nuka2024_try.databinding.FragmentSlideshowBinding
 
 class ScannersFragment : Fragment() {
@@ -33,4 +34,6 @@ class ScannersFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

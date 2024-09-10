@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
         //  引用文の作成
 
 
-        val textView_2: TextView = binding.textQuote
+        // val textView_2: TextView = binding.textQuote
 
         val quoteText = SpannableString("")
 
@@ -69,9 +69,9 @@ class HomeFragment : Fragment() {
     // イタリックに設定
         quoteText.setSpan(StyleSpan(Typeface.ITALIC), 0, quoteText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-    // パディングはTextViewで設定
+    /* パディングはTextViewで設定
         textView_2.setPadding(16, 16, 16, 16)
-        textView_2.text = quoteText
+        textView_2.text = quoteText */
 
         return root
     }
