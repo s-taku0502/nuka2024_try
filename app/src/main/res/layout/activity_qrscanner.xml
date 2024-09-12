@@ -34,7 +34,9 @@
         android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/qr_button"
+        app:layout_constraintEnd_toEndOf="@+id/qr_button" />
 
     <Button
         android:id="@+id/qr_button"

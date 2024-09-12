@@ -2,10 +2,11 @@ package com.example.nuka2024_try.ui.stamps
 
 import androidx.fragment.app.Fragment
 import com.example.nuka2024_try.databinding.FragmentSlideshowBinding
+import com.example.nuka2024_try.databinding.FragmentStampsBinding
 
 class StampsFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private var _binding: FragmentStampsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,4 +34,6 @@ class StampsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
