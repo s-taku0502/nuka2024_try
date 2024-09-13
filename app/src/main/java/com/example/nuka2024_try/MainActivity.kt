@@ -1,5 +1,6 @@
 package com.example.nuka2024_try
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -7,11 +8,14 @@ import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.nuka2024_try.databinding.ActivityMainBinding
+import com.example.nuka2024_try.ui.qr_scanner.QRCodeCaptureActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,28 +35,55 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null)
                 .setAnchorView(R.id.fab).show()
         }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        // トップレベルの目的地を設定
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_scan, R.id.nav_stamps
-                //R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_stamps, R.id.nav_scan
+                R.id.nav_home, R.id.nav_stamps
             ), drawerLayout
         )
+
+        // アクションバーとナビゲーションコントローラを連携
         setupActionBarWithNavController(navController, appBarConfiguration)
+        // NavigationViewとNavControllerを連携
         navView.setupWithNavController(navController)
+
+        // メニューアイテムの選択リスナーを設定
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                // アクティビティを作りたい場合はここに追記
+                R.id.nav_scan -> {
+                    // QRスキャンのアクティビティを起動
+                    val intent = Intent(this, QRCodeCaptureActivity::class.java)
+                    startActivity(intent)
+                    // ドロワーを閉じる
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> {
+                    // 他のメニューアイテムはNavControllerに委ねる
+                    val handled = NavigationUI.onNavDestinationSelected(menuItem, navController)
+                    if (handled) {
+                        drawerLayout.closeDrawer(GravityCompat.START)
+                    }
+                    handled
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // メニューをインフレートする
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        // ナビゲーションアップボタンの動作を設定
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
