@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192224717875",
+    "project_id": "nuka2024setup-try",
+    "storage_bucket": "nuka2024setup-try.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192224717875:android:59e81c9ed4793afbac0746",
+        "android_client_info": {
+          "package_name": "com.example.nuka2024_try"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH0XmLUTRUIEQnMeFYCrxl0Ke9xHgEVbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
