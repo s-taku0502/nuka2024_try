@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.nuka2024_try.MainActivity
 import com.example.nuka2024_try.R
 import com.google.zxing.integration.android.IntentIntegrator
 import com.journeyapps.barcodescanner.CaptureActivity
@@ -74,6 +75,12 @@ class QRCodeCaptureActivity : CaptureActivity() {
         val scannerAlphaField = ViewfinderView::class.java.getDeclaredField("SCANNER_ALPHA")
         scannerAlphaField.isAccessible = true
         scannerAlphaField.set(decoratedBarcodeView.viewFinder, intArrayOf(0))
+    }
+
+    // QRCodeCaptureActivity.kt
+    fun ToHome(view: View) {
+        val intent = Intent(this, MainActivity::class.java) // MainActivity を適切な Activity に置き換えてください
+        startActivity(intent)
     }
 
 }
