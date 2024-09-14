@@ -8,9 +8,9 @@
     <!-- 現在のFragment -->
     <fragment
         android:id="@+id/qrCodeCaptureFragment"
-        android:name=".ui.qr_scanner.QRCodeCaptureFragment"
-        android:label="QRCodeCaptureFragment"
-        tools:layout="@layout/fragment_qr_code_capture" />
+        android:name=".ui.qr_scanner.SccanersFragment"
+        android:label="QRscanner"
+        tools:layout="@layout/activity_qrscanner" />
 
     <!-- fragment_homeへのアクション-->
     <action

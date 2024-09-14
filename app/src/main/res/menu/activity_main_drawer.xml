@@ -41,5 +41,10 @@
             android:id="@+id/nav_coupons"
             android:icon="@drawable/nav_icon_stamp"
             android:title="Coupons"/>
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/nav_icon_stamp"
+            android:title="Setting"/>
     </group>
 </menu>

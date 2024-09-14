@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">設定</string>
     <string name="action_mail">受信箱</string>
-    <string name="action_ToHome">ホームへ移動する</string>
+    <string name="action_ToHome">ホームページへ移動する</string>
     <string name="action_scan">QRコード読み取り</string>
 
     <string name="menu_home">Home</string>
