@@ -2,6 +2,7 @@ package com.example.nuka2024_try.ui.qr_scanner
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.nuka2024_try.R
@@ -48,7 +49,17 @@ class QRCodeCaptureActivity : CaptureActivity() {
         var barcodeView =
             findViewById<com.journeyapps.barcodescanner.CompoundBarcodeView>(R.id.qrcode_reader)
         barcodeView.pause()
+
+
     }
+
+    /* ホーム画面（スマートフォンのホーム画面）への移動 #1
+    fun goHome(view: View) {
+        val startMain = Intent(Intent.ACTION_MAIN)
+        startMain.addCategory(Intent.CATEGORY_HOME)
+        startMain.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(startMain)
+    } */
 
     fun saveStamp(stampName: String) {
         val sharedPreferences = getSharedPreferences("stamps", MODE_PRIVATE)

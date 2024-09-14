@@ -1,8 +1,16 @@
 package com.example.nuka2024_try.ui.qr_scanner
 
+import android.os.Bundle
 import android.text.SpannableString
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.nuka2024_try.R
 import com.example.nuka2024_try.databinding.FragmentQrcodeBinding
 import com.example.nuka2024_try.databinding.FragmentSlideshowBinding
 
@@ -13,36 +21,30 @@ class ScannersFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    /*
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val QrcodeViewModel =
-            ViewModelProvider(this).get(QRCodeCaptureActivity::class.java)
 
         _binding = FragmentQrcodeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textQrcode
-        qrcodeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
-    } */
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    //  引用文の作成
+    // QRCodeCaptureFragment.kt
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    // val textView_2: TextView = binding.textQuote
-
-    val quoteText = SpannableString("この画面はQRcodeスキャナーです")
-
-
+        view.findViewById<Button>(R.id.ToHome).setOnClickListener {
+            findNavController().navigate(R.id.action_qrCodeCaptureFragment_to_homeFragment)
+        }
+    }
 }

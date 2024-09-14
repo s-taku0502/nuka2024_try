@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/qrCodeCaptureFragment"><!-- 現在のFragment-->
+
+    <!-- 現在のFragment -->
+    <fragment
+        android:id="@+id/qrCodeCaptureFragment"
+        android:name=".ui.qr_scanner.QRCodeCaptureFragment"
+        android:label="QRCodeCaptureFragment"
+        tools:layout="@layout/fragment_qr_code_capture" />
+
+    <!-- fragment_homeへのアクション-->
+    <action
+        android:id="@+id/action_qrCodeCaptureFragment_to_homeFragment"
+        app:destination="@id/homeFragment" />
+    <!-- </fragment> -->
+
+    <!-- fragment_home-->
+    <fragment
+    android:id="@+id/homeFragment"
+        android:name=".ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+</navigation>

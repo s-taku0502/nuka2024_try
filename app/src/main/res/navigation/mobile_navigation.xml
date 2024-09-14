@@ -35,4 +35,10 @@
         android:label="QRscanner"
         tools:layout="@layout/activity_qrscanner" />
 
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.nuka2024_try.ui.qr_scanner.ScannersFragment"
+        android:label="Setting"
+        tools:layout="@layout/activity_setting" />
+
 </navigation>
