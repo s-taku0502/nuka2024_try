@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 年齢入力 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="年齢"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"/>
+    <EditText
+        android:id="@+id/ageField"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="年齢を入力してください"
+        android:inputType="number" />
+    <!--
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" -->
+
+    <!-- 性別選択 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="性別"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"/>
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"/>
+
+    <!-- 家族構成選択 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="家族構成"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp" />
+    <Spinner
+        android:id="@+id/familySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <!-- 来場方法選択 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="来場方法"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp" />
+    <Spinner
+        android:id="@+id/methodSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <!-- 送信ボタン -->
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="送信" />
+</LinearLayout>

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.nuka2024_try.MainActivity
 import com.example.nuka2024_try.R
 import com.google.zxing.integration.android.IntentIntegrator
@@ -12,6 +14,7 @@ import com.journeyapps.barcodescanner.CaptureActivity
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import com.journeyapps.barcodescanner.ViewfinderView
+import com.example.nuka2024_try.ui.stamps.StampListActivity // スタンプ一覧画面のアクティビティ
 
 class QRCodeCaptureActivity : CaptureActivity() {
     private lateinit var capture: CaptureManager
@@ -62,12 +65,12 @@ class QRCodeCaptureActivity : CaptureActivity() {
         startActivity(startMain)
     } */
 
-    fun saveStamp(stampName: String) {
+/*    fun saveStamp(stampName: String) {
         val sharedPreferences = getSharedPreferences("stamps", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("stamp1", stampName)  // スタンプ名を保存
         editor.apply()
-    }
+    }*/
 
 
     // 赤い線を消す処理
@@ -77,10 +80,41 @@ class QRCodeCaptureActivity : CaptureActivity() {
         scannerAlphaField.set(decoratedBarcodeView.viewFinder, intArrayOf(0))
     }
 
+/*
     // QRCodeCaptureActivity.kt
     fun ToHome(view: View) {
         val intent = Intent(this, MainActivity::class.java) // MainActivity を適切な Activity に置き換えてください
         startActivity(intent)
+    }
+*/
+
+
+
+    class QRCodeCaptureActivity : AppCompatActivity() {
+        // ... 他のメソッド ...
+
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(this, "Cancelled",Toast.LENGTH_LONG).show()
+                } else {
+                    val scannedString = result.contents
+                    // 特定の文字列ならスタンプ一覧画面にスタンプを追加
+                    if (scannedString == "stamp1") {
+                        val intent = Intent(this, StampListActivity::class.java)
+                        intent.putExtra("stampId", 1) // スタンプIDを渡す
+                        startActivity(intent)
+                    } else if (scannedString == "stamp2") {
+                        // 他のスタンプの場合
+                    } else {
+                        Toast.makeText(this, "Invalid QR code", Toast.LENGTH_LONG).show()
+                    }
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
+            }
+        }
     }
 
 }
