@@ -1,13 +1,13 @@
-package com.example.nuka2024_try.ui.home
+package com.example.nuka2024_try.ui.stores
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class StoresViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is store Fragment"
     }
     val text: LiveData<String> = _text
 }
