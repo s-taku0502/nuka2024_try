@@ -12,18 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.nuka2024_try.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.nuka2024_try.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
         android:id="@+id/nav_stamps"
         android:name="com.example.nuka2024_try.ui.stamps.StampsFragment"
         android:label="Stamps"
@@ -36,10 +24,16 @@
         tools:layout="@layout/activity_qrscanner" />
 
     <fragment
-        android:id="@+id/nav_setting"
-        android:name="com.example.nuka2024_try.ui.qr_scanner.ScannersFragment"
-        android:label="Setting"
-        tools:layout="@layout/activity_setting" />
+        android:id="@+id/nav_coupons"
+        android:name="com.example.nuka2024_try.ui.coupons.CouponsFragment"
+        android:label="Coupons"
+        tools:layout="@layout/fragment_coupons" />
+
+    <fragment
+        android:id="@+id/nav_stores"
+        android:name="com.example.nuka2024_try.ui.stores.StoresFragment"
+        android:label="Stores"
+        tools:layout="@layout/fragment_stores" />
 
     <fragment
         android:id="@+id/nav_Email"
@@ -47,4 +41,24 @@
         android:label="Setting"
         tools:layout="@layout/activity_mailsetting" />
 
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.nuka2024_try.ui.qr_scanner.ScannersFragment"
+        android:label="Setting"
+        tools:layout="@layout/activity_setting" />
+
+
 </navigation>
+
+    <!--
+        <fragment
+            android:id="@+id/nav_gallery"
+            android:name="com.example.nuka2024_try.ui.gallery.GalleryFragment"
+            android:label="@string/menu_gallery"
+            tools:layout="@layout/fragment_gallery" />
+
+        <fragment
+            android:id="@+id/nav_slideshow"
+            android:name="com.example.nuka2024_try.ui.slideshow.SlideshowFragment"
+            android:label="@string/menu_slideshow"
+            tools:layout="@layout/fragment_slideshow" /> -->
