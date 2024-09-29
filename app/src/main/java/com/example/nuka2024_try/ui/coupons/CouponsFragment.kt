@@ -1,4 +1,4 @@
-package com.example.nuka2024_try.ui.home
+package com.example.nuka2024_try.ui.coupons
 
 import android.graphics.Color
 import android.graphics.Typeface
@@ -16,6 +16,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.nuka2024_try.databinding.FragmentCouponsBinding
+import com.example.nuka2024_try.ui.stores.CouponsViewModel
 import com.example.nuka2024_try.ui.stores.StoresViewModel
 //import com.example.nuka2024_try.ui.stores.StoresViewModel
 
@@ -33,7 +34,7 @@ class CouponsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(StoresViewModel::class.java)
+            ViewModelProvider(this).get(CouponsViewModel::class.java)
 
         _binding = FragmentCouponsBinding.inflate(inflater, container, false)
         val root: View = binding.root
