@@ -1,107 +1,85 @@
 package com.example.nuka2024_try.ui.stores
 
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.AbsoluteSizeSpan
-import android.text.style.BackgroundColorSpan
-import android.text.style.StyleSpan
-import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.nuka2024_try.databinding.FragmentHomeBinding
-import com.example.nuka2024_try.ui.stores.StoresViewModel
+import com.example.nuka2024_try.R
+import android.os.Handler
+import android.os.Looper
+import android.view.MotionEvent
+import android.widget.FrameLayout
+import android.widget.ImageSwitcher
+import android.widget.ImageView
+import java.util.Timer
+import java.util.TimerTask
 
-class StoresFragment : Fragment() {
+// グローバル変数
+private var currentImageIndex = 0
+private val images = arrayOf(
+    R.drawable.icon,
+    R.drawable.app_icon,
+    R.drawable.nav_icon_stamp
+)
 
-    private var _binding: FragmentHomeBinding? = null
+private var timer: Timer? = null
+private val handler = Handler(Looper.getMainLooper())
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+class StampFragment : Fragment(R.layout.fragment_stores) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(StoresViewModel::class.java)
+    // ImageSwitcherをクラス内で保持するためにlateinitを使用
+    private lateinit var imageSwitcher: ImageSwitcher
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val textView_1: TextView = binding.textHome
+        // view.findViewByIdでImageSwitcherを取得
+        imageSwitcher = view.findViewById(R.id.icon_01)
 
-        val spannable_1 =
-            SpannableString("額地区スタンプらり～\nスタンプらり～を活用して、商店街をまわろう！")
+        // ImageSwitcherにImageViewを設定
+        imageSwitcher.setFactory {
+            ImageView(requireContext()).apply {
+                layoutParams = FrameLayout.LayoutParams(150, 150)
+                scaleType = ImageView.ScaleType.FIT_CENTER
+            }
+        }
 
-        // "スタンプらり～" のサイズを20spに設定
+        // 初期画像を設定
+        imageSwitcher.setImageResource(images[currentImageIndex])
 
-        spannable_1.setSpan(StyleSpan(Typeface.BOLD), 0, 10, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannable_1.setSpan(AbsoluteSizeSpan(20, true), 0, 10, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // "商店街をまわろう！" のサイズを18spに設定
-
-        spannable_1.setSpan(
-            AbsoluteSizeSpan(18, true),
-            11,
-            spannable_1.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        textView_1.setTextColor(Color.BLACK)
-        textView_1.gravity = Gravity.CENTER  // テキストを中央揃えに設定
-
-
-        textView_1.text = spannable_1
-
-
-        //  引用文の作成
-
-
-        // val textView_2: TextView = binding.textQuote
-
-        val quoteText = SpannableString("")
-
-        // 引用文に背景色を設定
-        quoteText.setSpan(
-            BackgroundColorSpan(Color.LTGRAY),
-            0,
-            quoteText.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        // イタリックに設定
-        quoteText.setSpan(
-            StyleSpan(Typeface.ITALIC),
-            0,
-            quoteText.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        /* パディングはTextViewで設定
-        textView_2.setPadding(16, 16, 16, 16)
-        textView_2.text = quoteText */
-
-        return root
+        // マウスオーバー時の処理
+        imageSwitcher.setOnHoverListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_HOVER_ENTER -> {
+                    startImageSwitching() // 画像の切り替えを開始
+                }
+                MotionEvent.ACTION_HOVER_EXIT -> {
+                    stopImageSwitching() // 画像の切り替えを停止
+                }
+            }
+            true
+        }
     }
 
+    // 画像を3秒ごとに切り替える関数
+    private fun startImageSwitching() {
+        // タイマーが既に動いている場合は何もしない
+        if (timer != null) return
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        timer = Timer()
+        timer?.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                handler.post {
+                    // 画像を切り替える
+                    currentImageIndex = (currentImageIndex + 1) % images.size
+                    imageSwitcher.setImageResource(images[currentImageIndex])
+                }
+            }
+        }, 0, 3000) // 3秒ごとに実行
     }
 
+    // 画像の切り替えを停止する関数
+    private fun stopImageSwitching() {
+        timer?.cancel()
+        timer = null
+    }
 }
-/*
-class home_image{
-
-}*/
-
